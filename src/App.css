@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  
+}
+.CreateTask{
+  position: relative;
+  right: 6em;
+  top:1em; 
+}
+.Content{
+  display:flex;
+}
+.DividerInline{
+  position: relative;
+  top:3em; 
+}
+.CardPos{
+  position: relative;
+  top:5em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 250px;
+  height: 600px;
+  align-content: space-between;
+}
+
