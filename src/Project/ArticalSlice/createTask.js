@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const CreateTask=({onAdd})=> {
  const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const [name,setName]=useState("");
   const [summary,setSummary]=useState("");
 
@@ -41,7 +41,7 @@ export const CreateTask=({onAdd})=> {
   };
   const addHandler=()=>{
     if(name!=="" && summary!==""){
-          onAdd(name,summary)
+           onAdd(name,summary)
            setName("");
            setSummary("");
     }
@@ -53,7 +53,7 @@ export const CreateTask=({onAdd})=> {
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Create Task
       </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <Dialog open={isOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">New Task</DialogTitle>
                     <DialogContent>
                             <form className={classes.root} onSubmit={(e)=>{
@@ -67,7 +67,7 @@ export const CreateTask=({onAdd})=> {
                     Cancel
                 </Button>
                 <Button onClick={addHandler} color="primary">
-                    Add Task
+                    Add Project
                 </Button>
                 </DialogActions>
             </Dialog>

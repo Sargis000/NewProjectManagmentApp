@@ -16,10 +16,13 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export const UpdateTask=({modal,task})=> {
+
+
+
+export const UpdateTask=({modal,task,onUpdate})=> {
 
  const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [openModal, setOpen] = useState(false);
 
   const [name,setName]=useState("");
   const [summary,setSummary]=useState("");
@@ -42,18 +45,20 @@ export const UpdateTask=({modal,task})=> {
     setOpen(false);
   };
   const updateHandler=()=>{
-    //  task={
-    //         ...task,
-    //    taskName:name,
-    //    summary:summary,
-    //  }
-    setOpen(false);
+     task={
+        ...task,
+       taskName:name,
+       summary:summary,
+     }
+
+     setOpen(false);  
+     onUpdate(task)
   }
 
   return (
     <div>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Update Task</DialogTitle>
+            <Dialog open={openModal} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Update Project</DialogTitle>
                     <DialogContent>
                             <form className={classes.root} onSubmit={(e)=>{
                                   e.preventDefault(); }} >
